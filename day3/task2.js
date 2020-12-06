@@ -3,7 +3,7 @@ const FileSystem = require("fs");
 let input = FileSystem.readFileSync("./input.txt", "utf-8");
 let array = input.split("\n");
 
-const consulations = [
+const settings = [
   [3, 1],
   [1, 1],
   [5, 1],
@@ -13,7 +13,7 @@ const consulations = [
 
 let product = 1;
 
-consulations.forEach(c => {
+settings.forEach(c => {
   let travers = [0, 0];
   let trees = 0;
 

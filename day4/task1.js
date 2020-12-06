@@ -18,7 +18,6 @@ let allowed = {
   pid: true
 };
 
-let approved = false;
 let temp = [];
 
 let passports = [];
@@ -26,9 +25,8 @@ let passports = [];
 for (let i = 0; i < passportInput.length; i++) {
   if (passportInput[i] === "") {
     temp = Object.keys(allowed).map(key => passport[key]);
-    approved = temp.every(i => i);
 
-    if (approved) {
+    if (temp.every(i => i)) {
       passports.push(passport);
     }
 
@@ -42,8 +40,6 @@ for (let i = 0; i < passportInput.length; i++) {
 
       if (allowed[type]) {
         passport[type] = input;
-      } else {
-        approved = false;
       }
     });
   }

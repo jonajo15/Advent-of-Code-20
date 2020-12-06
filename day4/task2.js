@@ -18,20 +18,17 @@ let allowed = {
   pid: v => checkPid(v)
 };
 
-let approved = false;
 let temp = [];
 
 let passports = [];
 
 for (let i = 0; i < array.length; i++) {
   if (array[i] === "") {
-    temp = [];
     // check  required
     temp = Object.entries(allowed).map(([key, func]) => func(passport[key]));
 
-    approved = temp.every(i => i);
-
-    if (approved) {
+    // approved
+    if (temp.every(i => i)) {
       passports.push(passport);
     }
 
@@ -46,8 +43,6 @@ for (let i = 0; i < array.length; i++) {
 
       if (allowed[type]) {
         passport[type] = input;
-      } else {
-        approved = false;
       }
     });
   }
